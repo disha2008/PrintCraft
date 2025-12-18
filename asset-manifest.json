@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PrintCraft/static/css/main.72f78798.css",
+    "main.js": "/PrintCraft/static/js/main.2192e21f.js",
+    "index.html": "/PrintCraft/index.html",
+    "main.72f78798.css.map": "/PrintCraft/static/css/main.72f78798.css.map",
+    "main.2192e21f.js.map": "/PrintCraft/static/js/main.2192e21f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.72f78798.css",
+    "static/js/main.2192e21f.js"
+  ]
+}
