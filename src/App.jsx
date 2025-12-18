@@ -308,9 +308,9 @@ function Home() {
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           {[
-            { img: "/assets/business-cards1.png", title: "Premium Business Cards", category: "Printing" },
-            { img: "/assets/gift1.png", title: "Corporate Gift Boxes", category: "Crafting" },
-            { img: "/assets/flyers.png", title: "Brand Identity Design", category: "Digital" },
+            { img: `${process.env.PUBLIC_URL}/assets/business-cards1.png`, title: "Premium Business Cards", category: "Printing" },
+    { img: `${process.env.PUBLIC_URL}/assets/gift1.png`, title: "Corporate Gift Boxes", category: "Crafting" },
+    { img: `${process.env.PUBLIC_URL}/assets/flyers.png`, title: "Brand Identity Design", category: "Digital" },
           ].map((work, i) => (
             <div key={i} className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all">
               <img src={work.img} alt={work.title} className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" />

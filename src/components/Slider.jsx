@@ -2,24 +2,24 @@ import { useState, useEffect } from "react";
 
 export default function Slider() {
   const slides = [
-    "/assets/hero-sample.jpg",
-    "/assets/brochure.png",
-    "/assets/gift-card.png",
-    "/assets/cards.png",
-    "/assets/card2.png",
-    "/assets/slider1.png",
-    "/assets/slider3.png",
-    "/assets/slider9.png",
+    `${process.env.PUBLIC_URL}/assets/hero-sample.jpg`,
+    `${process.env.PUBLIC_URL}/assets/brochure.png`,
+    `${process.env.PUBLIC_URL}/assets/gift-card.png`,
+    `${process.env.PUBLIC_URL}/assets/cards.png`,
+    `${process.env.PUBLIC_URL}/assets/card2.png`,
+    `${process.env.PUBLIC_URL}/assets/slider1.png`,
+    `${process.env.PUBLIC_URL}/assets/slider3.png`,
+    `${process.env.PUBLIC_URL}/assets/slider9.png`,
   ];
 
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setIndex((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % slides.length);
@@ -30,7 +30,7 @@ export default function Slider() {
   };
 
   return (
-    <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
+    <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden rounded-xl">
 
       {/* Image */}
       <img
@@ -61,7 +61,7 @@ export default function Slider() {
           <div
             key={i}
             className={`w-3 h-3 rounded-full ${
-              index === i ? "bg-emerald-600" : "bg-gray-300"
+              index === i ? "bg-[#007A3D]" : "bg-gray-300"
             }`}
           ></div>
         ))}
