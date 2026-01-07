@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/PrintCraft/static/css/main.9c9b2b3d.css",
-    "main.js": "/PrintCraft/static/js/main.5dbbae33.js",
+    "main.css": "/PrintCraft/static/css/main.10e3abb3.css",
+    "main.js": "/PrintCraft/static/js/main.da92930f.js",
     "index.html": "/PrintCraft/index.html",
-    "main.9c9b2b3d.css.map": "/PrintCraft/static/css/main.9c9b2b3d.css.map",
-    "main.5dbbae33.js.map": "/PrintCraft/static/js/main.5dbbae33.js.map"
+    "main.10e3abb3.css.map": "/PrintCraft/static/css/main.10e3abb3.css.map",
+    "main.da92930f.js.map": "/PrintCraft/static/js/main.da92930f.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c9b2b3d.css",
-    "static/js/main.5dbbae33.js"
+    "static/css/main.10e3abb3.css",
+    "static/js/main.da92930f.js"
   ]
 }
