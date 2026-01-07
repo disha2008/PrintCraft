@@ -12,27 +12,74 @@ function Navbar() {
   }, []);
 
   return (
-    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#007A3D] shadow-lg' : 'bg-[#007A3D]'}`}>
+    <header
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-[#007A3D] shadow-lg" : "bg-[#007A3D]"
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
-        <Link to="/" className="text-2xl font-bold text-white tracking-wide">
-          Print Craft Digital
+        
+        {/* LOGO + BRAND NAME */}
+        <Link
+          to="/"
+          className="flex items-center gap-3 text-white hover:text-[#D4AF37] transition-colors"
+        >
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/logo.png`}
+            alt="Print Craft Digital Logo"
+            className="h-10 w-10 md:h-12 md:w-12 object-contain"
+          />
+          <span className="text-2xl font-bold tracking-wide">
+            Print Craft Digital
+          </span>
         </Link>
 
+        {/* DESKTOP MENU */}
         <nav className="hidden md:flex gap-8 text-sm font-medium items-center">
-          <Link to="/" className="text-white hover:text-[#D4AF37] transition-colors">Home</Link>
-          <Link to="/printing" className="text-white hover:text-[#D4AF37] transition-colors">Printing</Link>
-          <Link to="/crafting" className="text-white hover:text-[#D4AF37] transition-colors">Crafting</Link>
-          <Link to="/digital" className="text-white hover:text-[#D4AF37] transition-colors">Digital</Link>
-          <Link to="/about" className="text-white hover:text-[#D4AF37] transition-colors">About</Link>
-          <Link to="/contact" className="text-white hover:text-[#D4AF37] transition-colors">Contact</Link>
-          <Link 
-            to="/contact" 
-            className="ml-4 px-6 py-2.5 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold hover:bg-[#007A3D] hover:border-2 hover:border-[#D4AF37] hover:text-white transition-all"
+          <Link to="/" className="text-white hover:text-[#D4AF37] transition-colors">
+            Home
+          </Link>
+          <Link to="/printing" className="text-white hover:text-[#D4AF37] transition-colors">
+            Printing
+          </Link>
+          <Link to="/crafting" className="text-white hover:text-[#D4AF37] transition-colors">
+            Crafting
+          </Link>
+          <Link to="/digital" className="text-white hover:text-[#D4AF37] transition-colors">
+            Digital
+          </Link>
+          <Link to="/about" className="text-white hover:text-[#D4AF37] transition-colors">
+            About
+          </Link>
+          <Link to="/contact" className="text-white hover:text-[#D4AF37] transition-colors">
+            Contact
+          </Link>
+
+          {/* CALL BUTTON */}
+          <a
+            href="tel:+919325420358"
+            className="ml-2 px-6 py-2.5 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold
+                       hover:bg-[#007A3D] hover:border-2 hover:border-[#D4AF37] hover:text-white
+                       transition-all flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Call Now
+          </a>
+
+          {/* CTA BUTTON */}
+          <Link
+            to="/contact"
+            className="ml-2 px-6 py-2.5 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold
+                       hover:bg-[#007A3D] hover:border-2 hover:border-[#D4AF37] hover:text-white
+                       transition-all"
           >
             Get a Quote
           </Link>
         </nav>
 
+        {/* MOBILE MENU */}
         <div className="md:hidden">
           <MobileMenu />
         </div>
@@ -40,6 +87,7 @@ function Navbar() {
     </header>
   );
 }
+
 
 function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -61,6 +109,15 @@ function MobileMenu() {
           <Link to="/digital" onClick={() => setOpen(false)} className="block py-3 text-white hover:text-[#D4AF37] transition-colors">Digital</Link>
           <Link to="/about" onClick={() => setOpen(false)} className="block py-3 text-white hover:text-[#D4AF37] transition-colors">About</Link>
           <Link to="/contact" onClick={() => setOpen(false)} className="block py-3 text-white hover:text-[#D4AF37] transition-colors">Contact</Link>
+          
+          {/* Call Button in Mobile Menu */}
+          <a 
+            href="tel:+919325420358" 
+            onClick={() => setOpen(false)} 
+            className="block py-3 mt-2 text-center bg-white text-[#007A3D] rounded-lg font-semibold hover:bg-[#D4AF37] hover:text-[#0A2342] transition-colors"
+          >
+            📞 Call Now
+          </a>
         </div>
       )}
     </div>
@@ -97,7 +154,7 @@ function Footer() {
         <div>
           <h4 className="font-semibold mb-4 text-[#D4AF37]">Contact</h4>
           <p className="text-sm mb-2">info@printcraft.com.au</p>
-          <p className="text-sm mb-4">+61 3 9876 5432</p>
+          <p className="text-sm mb-4">919325420358</p>
           <div className="flex gap-4">
             <a href="#" className="text-[#D4AF37] hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -126,87 +183,173 @@ function SectionHeader({ title, subtitle, centered = true, goldLine = true }) {
 }
 
 /* Floating WhatsApp Button */
-function FloatingWhatsApp({ phone = "61398765432" }) {
+// function FloatingWhatsApp({ phone = "919325420358" }) {
+//   const sendWhatsApp = () => {
+//     const message = encodeURIComponent("Hi Print Craft Digital, I want a quote for printing/gifts.");
+//     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+//   };
+
+//   return (
+//     <button
+//       onClick={sendWhatsApp}
+//       className="fixed right-6 bottom-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110"
+//       aria-label="WhatsApp"
+//     >
+//       <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+//         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+//       </svg>
+//     </button>
+//   );
+// }
+function FloatingContactButtons({ phone = "919325420358", email = "dishantpatil95@gmail.com" }) {
   const sendWhatsApp = () => {
     const message = encodeURIComponent("Hi Print Craft Digital, I want a quote for printing/gifts.");
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
   };
 
+  const sendEmail = () => {
+    const subject = encodeURIComponent("Enquiry from Website");
+    const body = encodeURIComponent("Hi Print Craft Digital,\n\nI would like to enquire about your services.\n\nBest regards");
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
+
   return (
-    <button
-      onClick={sendWhatsApp}
-      className="fixed right-6 bottom-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110"
-      aria-label="WhatsApp"
-    >
-      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-      </svg>
-    </button>
+    <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-3">
+      {/* WhatsApp Button */}
+      <button
+        onClick={sendWhatsApp}
+        className="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110"
+        aria-label="WhatsApp"
+        title="Contact via WhatsApp"
+      >
+        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      </button>
+
+      {/* Email Button */}
+      <button
+        onClick={sendEmail}
+        className="bg-[#D4AF37] text-[#0A2342] p-4 rounded-full shadow-2xl hover:bg-[#007A3D] hover:text-white transition-all hover:scale-110"
+        aria-label="Email"
+        title="Contact via Email"
+      >
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </button>
+    </div>
   );
 }
 
 /* -------------------- Hero Slider -------------------- */
 function HeroSlider() {
   const slides = [
-    "/assets/hero-sample.jpg",
-    "/assets/brochure.png",
-    "/assets/gifts.jpeg",
+    {
+      id: 1,
+      image: `${process.env.PUBLIC_URL}/assets/slider00.png`,
+      mobileImage: `${process.env.PUBLIC_URL}/assets/slider-mobile02.png`,
+    },
+    {
+      id: 2,
+      image: `${process.env.PUBLIC_URL}/assets/slider1.png`,
+    },
+    {
+      id: 3,
+      image: `${process.env.PUBLIC_URL}/assets/slider2.png`,
+    },
+    {
+      id: 4,
+      image: `${process.env.PUBLIC_URL}/assets/slider3.png`,
+    }
   ];
 
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const nextSlide = () =>
+    setIndex((prev) => (prev + 1) % slides.length);
+
+  const prevSlide = () =>
+    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+
+  const currentSlide = slides[index];
+  
+  // Determine which image to show
+  const imageToShow = (index === 0 && isMobile && currentSlide.mobileImage) 
+    ? currentSlide.mobileImage 
+    : currentSlide.image;
 
   return (
-    <div className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden rounded-xl">
+    <div className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden rounded-xl shadow-2xl">
+      
+      {/* Single Image - switches based on screen size */}
       <img
-        src={slides[index]}
-        alt="Slide"
+        src={imageToShow}
+        alt={`Slide ${index + 1}`}
         className="w-full h-full object-cover transition-opacity duration-700"
+        key={imageToShow} // Force re-render when image changes
       />
 
-      {/* Overlay Content */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center">
-        <div className="max-w-7xl mx-auto px-6 text-white">
-          <p className="text-[#D4AF37] text-sm md:text-base font-semibold tracking-widest uppercase mb-4">
-            Premium Print • Gifts • Digital Design
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Crafting Premium Brands<br />for Modern Australia
-          </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl leading-relaxed opacity-90">
-            From exquisite print to thoughtfully curated gifts and cutting-edge digital design — we bring your brand vision to life with elegance and precision.
-          </p>
-          <div className="flex gap-4 flex-wrap">
-            <Link to="/contact" className="px-8 py-4 bg-[#007A3D] text-white rounded-lg font-semibold hover:bg-[#D4AF37] hover:text-[#0A2342] transition-all">
-              Get Started
-            </Link>
-            <Link to="/about" className="px-8 py-4 bg-transparent border-2 border-[#D4AF37] text-white rounded-lg font-semibold hover:bg-[#D4AF37] hover:text-[#0A2342] transition-all">
-              Learn More
-            </Link>
-          </div>
-        </div>
+      {/* Optional Dark Overlay */}
+      <div className="absolute inset-0 bg-black/20"></div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-[#0A2342] p-4 rounded-full transition-all shadow-lg hover:scale-110 z-10"
+        aria-label="Previous slide"
+      >
+        ❮
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-[#0A2342] p-4 rounded-full transition-all shadow-lg hover:scale-110 z-10"
+        aria-label="Next slide"
+      >
+        ❯
+      </button>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`transition-all rounded-full ${
+              index === i
+                ? "bg-[#D4AF37] w-12 h-3"
+                : "bg-white/60 w-3 h-3 hover:bg-white/80"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
 
-      <button onClick={prevSlide} className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 hover:bg-white text-[#0A2342] p-3 rounded-full transition-all">❮</button>
-      <button onClick={nextSlide} className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 hover:bg-white text-[#0A2342] p-3 rounded-full transition-all">❯</button>
-
-      <div className="absolute bottom-6 w-full flex justify-center gap-2">
-        {slides.map((_, i) => (
-          <div key={i} className={`w-3 h-3 rounded-full transition-all ${index === i ? "bg-[#D4AF37] w-8" : "bg-white/60"}`}></div>
-        ))}
+      {/* Slide Counter */}
+      <div className="absolute top-6 right-6 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-semibold z-10">
+        {index + 1} / {slides.length}
       </div>
     </div>
   );
 }
+
 
 /* -------------------- Home Page -------------------- */
 function Home() {
@@ -240,62 +383,134 @@ function Home() {
       </section>
 
       {/* Three Service Columns */}
-      <section className="bg-white py-24">
-        <SectionHeader 
-          title="What We Do" 
-          subtitle="Three pillars of brand excellence — print, craft, and digital"
-        />
+      <section className="relative bg-gradient-to-br from-gray-50 via-white to-[#F7F2E7] py-24 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#007A3D]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+        
+        <div className="relative">
+          <SectionHeader 
+            title="What We Do" 
+            subtitle="Three pillars of brand excellence — print, craft, and digital"
+          />
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-          {/* Printing Card */}
-          <div className="bg-[#F7F2E7] rounded-xl p-8 shadow-sm hover:shadow-lg transition-all">
-            <div className="w-16 h-16 rounded-full bg-white border-2 border-[#007A3D] flex items-center justify-center mb-6">
-              <svg className="w-8 h-8 text-[#007A3D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-[#0A2342] mb-4">Printing</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
-              {printingServices.map((s, i) => <li key={i}>• {s}</li>)}
-            </ul>
-          </div>
-
-          {/* Crafting Card */}
-          <div className="bg-white rounded-xl p-8 border-2 border-[#D4AF37] shadow-sm hover:shadow-lg transition-all">
-            <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 border-2 border-[#D4AF37] flex items-center justify-center mb-6">
-              <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-[#0A2342] mb-4">Crafting & Corporate Gifts</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
-              {craftingServices.map((s, i) => <li key={i}>• {s}</li>)}
-            </ul>
-          </div>
-
-          {/* Digital Card */}
-          <div className="bg-[#00A884] rounded-xl p-8 shadow-sm hover:shadow-lg transition-all">
-            <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white flex items-center justify-center mb-6">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Digital Services</h3>
-            <div className="space-y-3 text-sm text-white">
-              {digitalServices.map((s, i) => (
-                <div key={i}>
-                  <p className="font-semibold">• {s.title}</p>
-                  <p className="text-white/80 text-xs ml-3">{s.desc}</p>
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            {/* Printing Card */}
+            <div className="group relative bg-gradient-to-br from-[#F7F2E7] to-[#EDE7D9] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#007A3D]/10 hover:border-[#007A3D]/30 hover:-translate-y-2">
+              {/* Decorative corner accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#007A3D]/5 rounded-bl-full"></div>
+              
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#007A3D] to-[#005A2D] flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
                 </div>
-              ))}
+                
+                <h3 className="text-2xl font-bold text-[#0A2342] mb-6 group-hover:text-[#007A3D] transition-colors">Printing</h3>
+                
+                <ul className="space-y-3 text-sm text-gray-700">
+                  {printingServices.map((s, i) => (
+                    <li key={i} className="flex items-center gap-3 group/item hover:translate-x-1 transition-transform">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-[#007A3D] to-[#005A2D] flex items-center justify-center shadow-sm">
+                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="group-hover/item:text-[#007A3D] transition-colors">{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Crafting Card */}
+            <div className="group relative bg-white rounded-2xl p-8 border-2 border-[#D4AF37] shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+              {/* Animated gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Decorative corner pattern */}
+              <div className="absolute top-0 left-0 w-24 h-24">
+                <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-[#D4AF37]/30"></div>
+                <div className="absolute top-4 left-4 w-2 h-2 bg-[#D4AF37]/20 rounded-full"></div>
+              </div>
+              
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                  </svg>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-[#0A2342] mb-6 group-hover:text-[#D4AF37] transition-colors">Crafting & Corporate Gifts</h3>
+                
+                <ul className="space-y-3 text-sm text-gray-700">
+                  {craftingServices.map((s, i) => (
+                    <li key={i} className="flex items-center gap-3 group/item hover:translate-x-1 transition-transform">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-lg bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center rotate-45 shadow-sm">
+                        <svg className="w-3.5 h-3.5 text-white -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                      </span>
+                      <span className="group-hover/item:text-[#D4AF37] transition-colors">{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Digital Card */}
+            <div className="group relative bg-gradient-to-br from-[#00A884] to-[#008A6E] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+              {/* Animated circles background */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+              
+              {/* Grid pattern overlay */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
+                  backgroundSize: '20px 20px'
+                }}></div>
+              </div>
+              
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-white/40 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-6">Digital Services</h3>
+                
+                <div className="space-y-4 text-sm text-white">
+                  {digitalServices.map((s, i) => (
+                    <div key={i} className="group/item hover:translate-x-1 transition-transform">
+                      <div className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-6 h-6 mt-0.5 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover/item:bg-white group-hover/item:scale-110 transition-all">
+                          <svg className="w-3.5 h-3.5 text-white group-hover/item:text-[#00A884]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
+                          </svg>
+                        </span>
+                        <div>
+                          <p className="font-semibold mb-1">{s.title}</p>
+                          <p className="text-white/80 text-xs leading-relaxed">{s.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="text-center mt-12">
-          <Link to="/contact" className="inline-block px-10 py-4 bg-[#007A3D] text-white rounded-lg font-semibold hover:bg-[#D4AF37] hover:text-[#0A2342] transition-all">
-            Explore Services
-          </Link>
+          <div className="text-center mt-16">
+            <Link to="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#007A3D] to-[#005A2D] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group">
+              Explore Services
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -309,8 +524,8 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           {[
             { img: `${process.env.PUBLIC_URL}/assets/business-cards1.png`, title: "Premium Business Cards", category: "Printing" },
-    { img: `${process.env.PUBLIC_URL}/assets/gift1.png`, title: "Corporate Gift Boxes", category: "Crafting" },
-    { img: `${process.env.PUBLIC_URL}/assets/flyers.png`, title: "Brand Identity Design", category: "Digital" },
+            { img: `${process.env.PUBLIC_URL}/assets/gift1.png`, title: "Corporate Gift Boxes", category: "Crafting" },
+            { img: `${process.env.PUBLIC_URL}/assets/brand-design1.png`, title: "Brand Identity Design", category: "Digital" },
           ].map((work, i) => (
             <div key={i} className="group relative rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all">
               <img src={work.img} alt={work.title} className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -327,6 +542,7 @@ function Home() {
       </section>
 
       {/* Why Choose Us */}
+      {/* Why Choose Us */}
       <section className="bg-[#0A2342] py-24">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Choose Print Craft Digital</h2>
@@ -341,7 +557,7 @@ function Home() {
             { icon: "🎁", title: "Thoughtfully Curated Gifts", desc: "Each gift is composed with intention — elevated, refined, and designed to leave a lasting impression." }
           ].map((item, i) => (
             <div key={i} className="text-center">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#D4AF37]/10 border-2 border-[#D4AF37] flex items-center justify-center text-3xl">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white border-2 border-[#D4AF37] flex items-center justify-center text-3xl">
                 {item.icon}
               </div>
               <h4 className="text-white font-semibold text-lg uppercase tracking-wide mb-3">{item.title}</h4>
@@ -438,10 +654,14 @@ function About() {
 
 function Printing() {
   const products = [
-    { title: "Business Cards", desc: "Matte, gloss, spot UV, soft-touch options.", price: 199, img: "/assets/business-cards1.png" },
-    { title: "Brochures", desc: "Tri-fold and bi-fold brochures with high-quality prints.", price: 499, img: "/assets/a3brochures.png" },
-    { title: "Flyers & Leaflets", desc: "Eye-catching designs for promotions.", price: 299, img: "/assets/flyers.png" },
-    { title: "Posters & Banners", desc: "Large format prints for events.", price: 699, img: "/assets/slider1.png" },
+    { title: "Business Cards", desc: "Matte, gloss, spot UV, soft-touch options.", price: 199, img: `${process.env.PUBLIC_URL}/assets/business-cards1.png`},
+    { title: "Brochures & Catalogues", desc: "Tri-fold and bi-fold brochures with high-quality prints.", price: 499, img: `${process.env.PUBLIC_URL}/assets/a3brochures.png`},
+    { title: "Flyers & Leaflets", desc: "Eye-catching designs for promotions.", price: 299, img: `${process.env.PUBLIC_URL}/assets/flyers.png`},
+    { title: "Tickets / Event Passes", desc: "Large format prints for events.", price: 699, img: `${process.env.PUBLIC_URL}/assets/tickets.png`},
+    { title: "Posters & Banners", desc: "Large format prints for events.", price: 699, img: `${process.env.PUBLIC_URL}/assets/baner.png`},
+    { title: "Books & Magazines", desc: "Large format prints for events.", price: 699, img: `${process.env.PUBLIC_URL}/assets/books.png`},
+    { title: "Menu Cards", desc: "Large format prints for events.", price: 699, img: `${process.env.PUBLIC_URL}/assets/menu_card.png`},
+    { title: "Custom Prints", desc: "Large format prints for events.", price: 699, img: `${process.env.PUBLIC_URL}/assets/custom.png`},
   ];
 
   return (
@@ -460,8 +680,12 @@ function Printing() {
 
 function Crafting() {
   const products = [
-    { title: "Gift Boxes", desc: "Custom-branded gift boxes and packaging.", price: 299, img: "/assets/gift1.png" },
-    { title: "Corporate Gift Packs", desc: "Bespoke corporate gifting solutions.", price: 799, img: "/assets/visiting-card.png" },
+    { title: "Festive Hampers", desc: "Custom-branded gift boxes and packaging.", price: 299, img: `${process.env.PUBLIC_URL}/assets/festive-hamper1.png` },
+    { title: "Employee Welcome Kits", desc: "Bespoke corporate gifting solutions.", price: 799, img: `${process.env.PUBLIC_URL}/assets/welcome-kit1.png` },
+    { title: "Custom T-Shirts & Apparel", desc: "Bespoke corporate gifting solutions.", price: 799, img: `${process.env.PUBLIC_URL}/assets/t-shirt1.png` },
+    { title: "Office Stationery Kits", desc: "Bespoke corporate gifting solutions.", price: 799, img: `${process.env.PUBLIC_URL}/assets/office-kit1.png` },
+    { title: "Branded Desk Accessories", desc: "Bespoke corporate gifting solutions.", price: 799, img: `${process.env.PUBLIC_URL}/assets/desk1.png` },
+    { title: "Event Goodie Bags", desc: "Bespoke corporate gifting solutions.", price: 799, img: `${process.env.PUBLIC_URL}/assets/event-goodie-bag1.png` },
   ];
 
   return (
@@ -545,14 +769,23 @@ function Contact() {
   };
 
   const handleSubmit = (ev) => {
-    ev.preventDefault();
-    const v = validate();
-    setErrors(v);
-    if (Object.keys(v).length === 0) {
-      console.log("submit", form);
-      setSubmitted(true);
-    }
-  };
+  ev.preventDefault();
+  const v = validate();
+  setErrors(v);
+  if (Object.keys(v).length === 0) {
+    // Send to WhatsApp
+    const message = encodeURIComponent(
+      `*New Enquiry from Website*\n\n` +
+      `*Name:* ${form.name}\n` +
+      `*Email:* ${form.email}\n` +
+      `*Phone:* ${form.phone || 'Not provided'}\n` +
+      `*Service:* ${form.service || 'Not specified'}\n\n` +
+      `*Message:*\n${form.message}`
+    );
+    window.open(`https://wa.me/919325420358?text=${message}`, "_blank");
+    setSubmitted(true);
+  }
+};
 
   if (submitted) {
     return (
@@ -638,16 +871,103 @@ function Contact() {
             {errors.message && <span className="text-red-500 text-xs mt-1">{errors.message}</span>}
           </div>
 
-          <button type="submit" className="mt-8 w-full px-8 py-4 bg-[#007A3D] text-white rounded-lg font-semibold hover:bg-[#D4AF37] hover:text-[#0A2342] transition-all">
+          {/* <button type="submit" className="mt-8 w-full px-8 py-4 bg-[#007A3D] text-white rounded-lg font-semibold hover:bg-[#D4AF37] hover:text-[#0A2342] transition-all">
             Submit Enquiry
-          </button>
+          </button> */}
+           <div className="mt-8 flex gap-4">
+            {/* Email Submit Button */}
+            <button 
+              type="submit" 
+              className="flex-1 flex items-center justify-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold hover:bg-[#007A3D] hover:text-white transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Send via Email
+            </button>
+
+            {/* WhatsApp Button */}
+            <button 
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                const v = validate();
+                setErrors(v);
+                if (Object.keys(v).length === 0) {
+                  const message = encodeURIComponent(
+                    `*New Enquiry from Website*\n\n` +
+                    `*Name:* ${form.name}\n` +
+                    `*Email:* ${form.email}\n` +
+                    `*Phone:* ${form.phone || 'Not provided'}\n` +
+                    `*Service:* ${form.service || 'Not specified'}\n\n` +
+                    `*Message:*\n${form.message}`
+                  );
+                  window.open(`https://wa.me/919325420358?text=${message}`, "_blank");
+                }
+              }}
+              className="flex items-center justify-center gap-2 px-8 py-4 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-all"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              WhatsApp
+            </button>
+          </div>
         </form>
       </div>
     </div>
   );
 }
 
+// function ProductCard({ product }) {
+//   const handleEnquire = () => {
+//     const message = encodeURIComponent(
+//       `Hi Print Craft Digital,\n\nI'm interested in: ${product.title}\n\nDescription: ${product.desc}\nStarting Price: ₹${product.price}\n\nPlease provide more details.`
+//     );
+//     window.open(`https://wa.me/919325420358?text=${message}`, "_blank");
+//   };
+
+//   return (
+//     <div className="relative rounded-xl overflow-hidden shadow-md group bg-white hover:shadow-xl transition-all">
+//       <div className="h-80 w-full overflow-hidden">
+//         <img
+//           src={product.img}
+//           alt={product.title}
+//           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+//         />
+//       </div>
+//       <div className="p-6">
+//         <h3 className="text-xl font-bold text-[#0A2342] mb-2">{product.title}</h3>
+//         <p className="text-sm text-gray-600 mb-4">{product.desc}</p>
+//         <div className="flex items-center justify-between">
+//           <div className="text-lg font-bold text-[#007A3D]">From ₹{product.price}</div>
+//           <button
+//             onClick={handleEnquire}
+//             className="px-5 py-2 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold hover:bg-[#007A3D] hover:text-white transition-all"
+//           >
+//             Enquire
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 function ProductCard({ product }) {
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(
+      `Hi Print Craft Digital,\n\nI'm interested in: ${product.title}\n\nDescription: ${product.desc}\nStarting Price: ₹${product.price}\n\nPlease provide more details.`
+    );
+    window.open(`https://wa.me/919325420358?text=${message}`, "_blank");
+  };
+
+  const handleEmail = () => {
+    const subject = encodeURIComponent(`Enquiry about ${product.title}`);
+    const body = encodeURIComponent(
+      `Hi Print Craft Digital,\n\nI'm interested in: ${product.title}\n\nDescription: ${product.desc}\nStarting Price: ₹${product.price}\n\nPlease provide more details.\n\nBest regards`
+    );
+    window.location.href = `mailto:dishantpatil95@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="relative rounded-xl overflow-hidden shadow-md group bg-white hover:shadow-xl transition-all">
       <div className="h-80 w-full overflow-hidden">
@@ -662,18 +982,36 @@ function ProductCard({ product }) {
         <p className="text-sm text-gray-600 mb-4">{product.desc}</p>
         <div className="flex items-center justify-between">
           <div className="text-lg font-bold text-[#007A3D]">From ₹{product.price}</div>
-          <Link
-            to="/contact"
-            className="px-5 py-2 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold hover:bg-[#007A3D] hover:text-white transition-all"
-          >
-            Enquire
-          </Link>
+          <div className="flex gap-2">
+            {/* WhatsApp Button */}
+            <button
+              onClick={handleWhatsApp}
+              className="p-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-all hover:scale-110"
+              aria-label="Contact via WhatsApp"
+              title="WhatsApp"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+            </button>
+
+            {/* Email Button */}
+            <button
+              onClick={handleEmail}
+              className="p-3 bg-[#D4AF37] text-[#0A2342] rounded-lg font-semibold hover:bg-[#007A3D] hover:text-white transition-all hover:scale-110"
+              aria-label="Contact via Email"
+              title="Email"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
 /* -------------------- App -------------------- */
 function App() {
   return (
@@ -690,7 +1028,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
-        <FloatingWhatsApp />
+        <FloatingContactButtons />
       </div>
     </Router>
   );
